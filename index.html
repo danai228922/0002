@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>My LIFF App</title>
+  <style>
+    body { padding: 256px }
+    button { display: none; width: 50%; padding: 16px 0; margin: 16px auto }
+  </style>
+</head>
+<body>
+  <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
+  <button id="btnLogin" onclick="liff.login()">Log In</button>
+  <button id="btnLogOut" onclick="logOut()">Log Out</button>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0/sdk.js"></script>
+  <script>
+    async function sendShare() {
+      const result = await liff.shareTargetPicker([
+        {
+          "type": "flex",
+          "altText": "พระสอนศีลธรรม เดอะซีรี่ส์",
+          "contents": {
+  "type": "carousel",
+  "contents": [
+  {
+      "type": "bubble",
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "รวมพลัง ร่วมพัฒนา",
+            "size": "xxl",
+            "weight": "bold",
+            "color": "#FFFFFF"
+          },
+          {
+            "type": "text",
+            "text": "พลิกโฉมพระสอนศีลธรรม ",
+            "size": "xl",
+            "weight": "regular",
+            "offsetStart": "md",
+            "color": "#FFFFFF"
+          }
+        ],
+        "backgroundColor": "#000000"
+      },
+      "hero": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "url": "https://sv1.picz.in.th/images/2021/05/29/P6ZLOl.png",
+            "position": "absolute",
+            "align": "end",
+            "offsetStart": "100px"
+          },
+          {
+            "type": "image",
+            "url": "https://sv1.picz.in.th/images/2021/05/29/P6Zvet.png",
+            "margin": "xs",
+            "align": "start"
+          },
+          {
+            "type": "image",
+            "url": "https://sv1.picz.in.th/images/2021/05/29/P6ZEX1.png",
+            "position": "absolute",
+            "offsetStart": "200px"
+          }
+        ],
+        "offsetTop": "xs"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "weight": "bold",
+            "size": "lg",
+            "text": "สมัครเข้าร่วมเพื่อพัฒนาเป็น",
+            "wrap": true,
+            "offsetStart": "md"
+          },
+          {
+            "type": "text",
+            "text": "พระนิเทศก์ และพระบริหารการนิเทศ",
+            "weight": "bold"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "คุณสมบัติ",
+                "weight": "bold",
+                "decoration": "underline",
+                "size": "xl",
+                "align": "center"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "🔸 คุณสมบัติเป็นพระสอนศีลธรรม 3-5 ปีขึ้นไป ",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "🔸 มีประสบการณ์ผ่านการอบรม Active Learning ของสำนักงานพระสอนศีลธรรมหรือสถาบันอื่น",
+                    "wrap": true
+                  },
+                  {
+                    "type": "text",
+                    "text": "🔸 มีใจรักและพร้อมที่จะเข้าร่วมเป็นส่วนหนึ่งในการเข้าอบรมพัฒนาและฝึกฝนประสบการณ์การเป็นพระนิเทศก์ และพระบริหารการนิเทศ ",
+                    "wrap": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "offsetTop": "xl"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "horizontal",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "primary",
+            "height": "sm",
+            "action": {
+              "type": "uri",
+              "label": "สมัคร",
+              "uri": "https://forms.gle/kiUPHfZHQvgvuhtz8"
+            }
+          },
+          {
+            "type": "button",
+            "style": "secondary",
+            "height": "sm",
+            "action": {
+              "type": "uri",
+              "label": "แชร์ให้เพื่อน",
+              "uri": "https://liff.line.me/1655879041-MD64AYwP"
+            }
+          },
+          {
+            "type": "spacer",
+            "size": "sm"
+          }
+        ],
+        "flex": 0
+      }
+    },
+    {
+      "type": "bubble",
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "พระนิเทศก์ ",
+            "size": "md",
+            "weight": "bold",
+            "decoration": "underline",
+            "align": "center",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "และพระบริหารการนิเทศน์",
+            "align": "center",
+            "weight": "bold",
+            "decoration": "underline"
+          }
+        ],
+        "backgroundColor": "#FDF5E6"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "🔸 พระบริหารการนิเทศ อบรม Online 6 ชม. แล Onsite 5 วัน 4 คืน ณ มจร.วังน้อย และปฏิบัติการภาคสนาม โดยได้รับทุนสนับสนุนในการดำเนินงานทีมละ 20,000 บาท เมื่อผ่านการอบรมแล้วจะได้ร่วมเป็นแกนนำขับเคลื่อนการพัฒนาพระสอนศีลธรรมเพื่อสร้างพลังศีลธรรมในสถานศึกษา และได้รับวุฒิบัตรจากมหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "🔸 พระนิเทศก์  ร่วมพัฒนาออกแบบกิจกรรมการสร้างชุมชนแห่งการเรียนรู้ทางวิชาชีพวิถีพุทธ ๓ วัน ๒ คืน และปฏิบัติการภาคสนาม โดยได้รับทุนสนับสนุนในการดำเนินงานทีมละ 20,000 บาท เมื่อผ่านการอบรมแล้วจะได้ร่วมเป็นแกนนำขับเคลื่อนการพัฒนาพระสอนศีลธรรมเพื่อพัฒนาการเรียนการสอนพระพุทธศาสนาในสถานศึกษา และได้รับวุฒิบัตรจากมหาวิทยาลัยมหาจุฬาลงกรณราชวิทยาลัย ",
+            "wrap": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "header": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "หมายเหตุ",
+            "size": "xl",
+            "weight": "bold",
+            "decoration": "underline",
+            "align": "center",
+            "wrap": true
+          }
+        ],
+        "backgroundColor": "#FDF5E6"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "🔸 เปิดรับสมัครวันนี้ – 16 มิ.ย.2564 ลงทะเบียนผ่านระบบ google form ",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "🔸 ประกาศรายชื่อผู้ผ่านการคัดเลือกรอบที่ 1 วันที่ 17 มิ.ย.2564 ",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "🔸 ประกาศรายชื่อผู้ผ่านการสัมภาษณ์ วันที่ 22 มิ.ย.2564 ",
+            "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "ติดต่อสอบถาม",
+            "weight": "bold",
+            "decoration": "underline",
+            "align": "center",
+            "offsetTop": "lg",
+            "size": "lg"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "อ. พระมหาณรงค์ราช (087-496-8240) ",
+                "offsetTop": "5px"
+              },
+              {
+                "type": "text",
+                "text": "อ. นิรุต ( 087-102-0854)",
+                "offsetTop": "5px"
+              },
+              {
+                "type": "image",
+                "url": "https://sv1.picz.in.th/images/2021/05/29/P6xGVq.png",
+                "size": "full"
+              }
+            ],
+            "offsetTop": "lg"
+          }
+        ]
+      }
+    }
+  ]
+}
+        }
+      ])
+      if (result) {
+        alert(`[${result.status}] Message sent!`)
+      } else {
+        const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
+
+        if (minorVer === undefined) {
+          alert('ShareTargetPicker was canceled in external browser')
+          return
+        }
+
+        if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+          alert('ShareTargetPicker was canceled in LINE app')
+        }
+      }
+    }
+    function logOut() {
+      liff.logout()
+      window.location.reload()
+    }
+    async function main() {
+      await liff.init({ liffId: "1655372449-RpkAZdPO" })
+      if (liff.isLoggedIn()) {
+        document.getElementById("btnShare").style.display = "block"
+        if (!liff.isInClient()) {
+          document.getElementById("btnLogOut").style.display = "block"
+        }
+      } else {
+        document.getElementById("btnLogin").style.display = "block"
+      }
+    }
+    main()
+  </script>
+</body>
+</html>
